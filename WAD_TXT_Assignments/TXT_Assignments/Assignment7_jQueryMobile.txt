@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assignment 7 – jQuery Mobile</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    .custom-header { background: #4f46e5 !important; }
+    .custom-header h1 { color: #fff !important; }
+    .hero-box { background: linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; padding:30px 15px; text-align:center; }
+    .card-box { background:#fff; margin:10px; border-radius:10px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .card-box h3 { color:#4f46e5; margin-top:0; }
+    .icon { font-size:2rem; }
+  </style>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header" class="custom-header">
+    <h1>WAD Mobile App</h1>
+  </div>
+  <div data-role="content">
+    <div class="hero-box">
+      <p class="icon">📱</p>
+      <h2 style="margin:0;">jQuery Mobile</h2>
+      <p>Assignment 7 – Simple Mobile Website</p>
+    </div>
+    <ul data-role="listview" data-inset="true" style="margin-top:15px;">
+      <li data-role="list-divider">Navigation</li>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#about">ℹ️ About</a></li>
+      <li><a href="#services">⚙️ Services</a></li>
+      <li><a href="#contact">📞 Contact</a></li>
+      <li><a href="#register">📝 Register</a></li>
+    </ul>
+    <div data-role="collapsibleset" style="margin-top:10px;">
+      <div data-role="collapsible" data-collapsed="false">
+        <h3>What is jQuery Mobile?</h3>
+        <p>jQuery Mobile is a HTML5-based UI framework designed to make responsive websites and apps accessible on all smartphone, tablet, and desktop devices.</p>
+      </div>
+      <div data-role="collapsible">
+        <h3>Why Mobile Web?</h3>
+        <p>Over 60% of internet traffic comes from mobile devices. Building mobile-friendly websites ensures great user experience for everyone.</p>
+      </div>
+    </div>
+  </div>
+  <div data-role="footer">
+    <h4>WAD Practical – Assignment 7</h4>
+  </div>
+</div>
+
+<div data-role="page" id="about">
+  <div data-role="header" class="custom-header">
+    <a href="#home" data-rel="back" data-role="button" data-icon="back">Back</a>
+    <h1>About</h1>
+  </div>
+  <div data-role="content">
+    <div class="card-box">
+      <h3>About This App</h3>
+      <p>This mobile website is built using jQuery Mobile 1.4.5 for the WAD practical examination.</p>
+      <p>It demonstrates:</p>
+      <ul>
+        <li>Multi-page navigation</li>
+        <li>jQuery Mobile components</li>
+        <li>Responsive mobile layout</li>
+        <li>Form elements</li>
+      </ul>
+    </div>
+    <div class="card-box">
+      <h3>Slider Demo</h3>
+      <label for="skillSlider">Skill Level:</label>
+      <input type="range" name="skillSlider" id="skillSlider" value="70" min="0" max="100" data-highlight="true"/>
+      <label for="flipToggle">Dark Mode:</label>
+      <select name="flipToggle" id="flipToggle" data-role="flipswitch">
+        <option value="off">Off</option>
+        <option value="on">On</option>
+      </select>
+    </div>
+  </div>
+  <div data-role="footer"><h4>WAD Assignment 7</h4></div>
+</div>
+
+<div data-role="page" id="services">
+  <div data-role="header" class="custom-header">
+    <a href="#home" data-rel="back" data-role="button" data-icon="back">Back</a>
+    <h1>Services</h1>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">Our Services</li>
+      <li>
+        <a href="#">
+          <span class="icon">🌐</span>
+          <h3>Web Design</h3>
+          <p>HTML, CSS, Bootstrap responsive pages</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">🅰️</span>
+          <h3>Angular Development</h3>
+          <p>SPA with routing and components</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">🟢</span>
+          <h3>Node.js API</h3>
+          <p>REST APIs with Express & MongoDB</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">📱</span>
+          <h3>Mobile Web</h3>
+          <p>jQuery Mobile responsive sites</p>
+        </a>
+      </li>
+    </ul>
+    <div style="margin:15px;">
+      <a href="#home" data-role="button" data-theme="b" data-icon="home">Go Home</a>
+      <a href="#contact" data-role="button" data-theme="a" data-icon="phone">Contact Us</a>
+    </div>
+  </div>
+  <div data-role="footer"><h4>WAD Assignment 7</h4></div>
+</div>
+
+<div data-role="page" id="contact">
+  <div data-role="header" class="custom-header">
+    <a href="#home" data-rel="back" data-role="button" data-icon="back">Back</a>
+    <h1>Contact</h1>
+  </div>
+  <div data-role="content">
+    <div class="card-box">
+      <h3>Contact Information</h3>
+      <p>Email: wad@college.edu</p>
+      <p>Phone: +91 9876543210</p>
+      <p>College: Engineering College, Pune</p>
+      <p>Hours: Mon–Fri, 9 AM – 5 PM</p>
+    </div>
+    <div class="card-box">
+      <h3>Location</h3>
+      <div style="background:#e0e7ff;padding:40px;text-align:center;border-radius:8px;">
+        <p style="color:#4f46e5;font-size:2rem;">🗺️</p>
+        <p>Pune, Maharashtra, India</p>
+      </div>
+    </div>
+  </div>
+  <div data-role="footer"><h4>WAD Assignment 7</h4></div>
+</div>
+
+<div data-role="page" id="register">
+  <div data-role="header" class="custom-header">
+    <a href="#home" data-rel="back" data-role="button" data-icon="back">Back</a>
+    <h1>Register</h1>
+  </div>
+  <div data-role="content">
+    <form id="mobileRegForm">
+      <div data-role="fieldcontain">
+        <label for="mName">Full Name:</label>
+        <input type="text" id="mName" placeholder="Your name"/>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="mEmail">Email:</label>
+        <input type="email" id="mEmail" placeholder="Your email"/>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="mPhone">Mobile:</label>
+        <input type="tel" id="mPhone" placeholder="10-digit number"/>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="mGender">Gender:</label>
+        <select id="mGender" data-native-menu="false">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div data-role="fieldcontain">
+        <label>Interests:</label>
+        <fieldset data-role="controlgroup">
+          <input type="checkbox" id="chk1"/><label for="chk1">Web Design</label>
+          <input type="checkbox" id="chk2"/><label for="chk2">Angular</label>
+          <input type="checkbox" id="chk3"/><label for="chk3">Node.js</label>
+        </fieldset>
+      </div>
+      <button type="button" data-theme="b" onclick="submitMobileForm()">Submit Registration</button>
+    </form>
+    <div id="mobileFormMsg" style="display:none;" class="card-box">
+      <h3 style="color:#16a34a;">Registered Successfully!</h3>
+      <p id="mobileFormDetails"></p>
+    </div>
+  </div>
+  <div data-role="footer"><h4>WAD Assignment 7</h4></div>
+</div>
+
+<script>
+function submitMobileForm() {
+  var name = document.getElementById('mName').value;
+  var email = document.getElementById('mEmail').value;
+  if (!name || !email) { alert('Please fill Name and Email.'); return; }
+  document.getElementById('mobileRegForm').style.display = 'none';
+  var msg = document.getElementById('mobileFormMsg');
+  msg.style.display = 'block';
+  document.getElementById('mobileFormDetails').innerHTML =
+    'Name: <strong>' + name + '</strong><br>Email: <strong>' + email + '</strong>';
+}
+</script>
+
+</body>
+</html>

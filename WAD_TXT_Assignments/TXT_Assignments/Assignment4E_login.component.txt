@@ -1,0 +1,45 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  template: `
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card shadow-sm border-0 p-4">
+          <h3 class="fw-bold mb-3" style="color:#dc2626;">🔐 Login</h3>
+          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="email" placeholder="Enter your email"/>
+          </div>
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="password" placeholder="Enter password"/>
+          </div>
+          <button class="btn btn-danger w-100 fw-semibold" (click)="login()">Login</button>
+          <p class="text-center mt-3 mb-0 text-muted small">
+            Don't have an account? <a routerLink="/registration">Register here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class LoginComponent {
+  email = '';
+  password = '';
+  error = '';
+
+  constructor(private router: Router) {}
+
+  login() {
+    const stored = JSON.parse(localStorage.getItem('wad_user') || '{}');
+    if (stored.email === this.email && stored.password === this.password) {
+      this.error = '';
+      this.router.navigate(['/profile']);
+    } else {
+      this.error = 'Invalid credentials. Please register first.';
+    }
+  }
+}

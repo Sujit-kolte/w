@@ -1,0 +1,64 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-registration',
+  template: `
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0 p-4">
+          <h3 class="fw-bold mb-3" style="color:#4f46e5;">📝 User Registration</h3>
+
+          <div *ngIf="submitted" class="alert alert-success">
+            Registered successfully! Welcome, {{user.name}}!
+          </div>
+
+          <form (ngSubmit)="register()" #regForm="ngForm" *ngIf="!submitted">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Full Name</label>
+              <input type="text" class="form-control" [(ngModel)]="user.name" name="name" required placeholder="Enter your name"/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="user.email" name="email" required placeholder="Enter email"/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Mobile</label>
+              <input type="tel" class="form-control" [(ngModel)]="user.mobile" name="mobile" required placeholder="10-digit mobile"/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Password</label>
+              <input type="password" class="form-control" [(ngModel)]="user.password" name="password" required placeholder="Min 6 chars"/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Gender</label>
+              <select class="form-select" [(ngModel)]="user.gender" name="gender" required>
+                <option value="">Select</option>
+                <option>Male</option><option>Female</option><option>Other</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">City</label>
+              <input type="text" class="form-control" [(ngModel)]="user.city" name="city" required placeholder="Your city"/>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 fw-semibold" [disabled]="regForm.invalid">Register</button>
+          </form>
+
+          <button *ngIf="submitted" class="btn btn-outline-primary mt-3 w-100" (click)="reset()">Register Another</button>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class RegistrationComponent {
+  user = { name:'', email:'', mobile:'', password:'', gender:'', city:'' };
+  submitted = false;
+
+  register() {
+    localStorage.setItem('wad_user', JSON.stringify(this.user));
+    this.submitted = true;
+  }
+  reset() {
+    this.user = { name:'', email:'', mobile:'', password:'', gender:'', city:'' };
+    this.submitted = false;
+  }
+}

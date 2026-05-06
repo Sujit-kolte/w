@@ -1,0 +1,31 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  template: `
+    <div class="text-center py-5" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:16px;color:#fff;">
+      <h1 class="display-5 fw-bold">Welcome to WAD App</h1>
+      <p class="lead">Angular Application with 4 Components + Routing</p>
+      <a routerLink="/registration" class="btn btn-light fw-bold me-2">Get Started</a>
+      <a routerLink="/service" class="btn btn-outline-light">Our Services</a>
+    </div>
+    <div class="row mt-4 g-3">
+      <div class="col-md-4" *ngFor="let item of features">
+        <div class="card border-0 shadow-sm h-100 p-3">
+          <h5 class="fw-bold" [style.color]="item.color">{{item.icon}} {{item.title}}</h5>
+          <p class="text-muted">{{item.desc}}</p>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class HomeComponent {
+  features = [
+    { icon: '🏠', title: 'Home', color: '#4f46e5', desc: 'Landing page with Angular routing navigation.' },
+    { icon: '📝', title: 'Registration', color: '#16a34a', desc: 'User registration form with two-way binding.' },
+    { icon: '🔐', title: 'Login', color: '#dc2626', desc: 'Login component with credential validation.' },
+    { icon: '👤', title: 'Profile', color: '#d97706', desc: 'Display and manage user profile information.' },
+    { icon: '⚙️', title: 'Service', color: '#7c3aed', desc: 'Additional services component with Angular.' },
+    { icon: '🔗', title: 'Routing', color: '#0891b2', desc: 'RouterModule configured for SPA navigation.' },
+  ];
+}

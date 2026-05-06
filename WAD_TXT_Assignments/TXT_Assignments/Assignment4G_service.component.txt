@@ -1,0 +1,28 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-service',
+  template: `
+    <h3 class="fw-bold mb-4" style="color:#7c3aed;">Our Services</h3>
+    <div class="row g-3">
+      <div class="col-md-4" *ngFor="let s of services">
+        <div class="card border-0 shadow-sm h-100 p-3 text-center">
+          <div style="font-size:2.5rem;">{{s.icon}}</div>
+          <h5 class="fw-bold mt-2">{{s.title}}</h5>
+          <p class="text-muted small">{{s.desc}}</p>
+          <span class="badge" [class]="s.badge">{{s.tag}}</span>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class ServiceComponent {
+  services = [
+    { icon:'🌐', title:'Web Development', desc:'Responsive websites with HTML, CSS, Bootstrap.', tag:'Frontend', badge:'bg-primary text-white' },
+    { icon:'🅰️', title:'Angular Apps', desc:'SPA with routing, components, and data binding.', tag:'Framework', badge:'bg-danger text-white' },
+    { icon:'🟢', title:'Node.js Backend', desc:'REST APIs and static file serving with Express.', tag:'Backend', badge:'bg-success text-white' },
+    { icon:'🍃', title:'MongoDB', desc:'NoSQL database for CRUD operations via API.', tag:'Database', badge:'bg-warning text-dark' },
+    { icon:'📦', title:'Git & GitHub', desc:'Version control and code sharing using git.', tag:'DevOps', badge:'bg-dark text-white' },
+    { icon:'📱', title:'jQuery Mobile', desc:'Mobile-first websites using jQuery Mobile.', tag:'Mobile', badge:'bg-info text-dark' },
+  ];
+}
