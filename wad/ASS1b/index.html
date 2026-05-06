@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Register User</h2>
+    <form id="regForm">
+        <input type="text" id="username" placeholder="Username" required><br><br>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect Data
+            const userData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Simulate AJAX Post Logic
+            saveData(userData);
+        });
+
+        function saveData(data) {
+            // Get existing data or initialize empty array
+            let users = JSON.parse(localStorage.getItem('userList')) || [];
+
+            // Push new data
+            users.push(data);
+
+            // Save back to local storage
+            localStorage.setItem('userList', JSON.stringify(users));
+
+            alert('Data saved successfully!');
+            window.location.href = 'display.html'; // Redirect to list page
+        }
+    </script>
+</body>
+
+</html>

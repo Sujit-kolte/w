@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registered Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f0f0f0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 2px;
+            background-color: #e3ffdd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registered Users List</h2>
+    <ul id="userDisplay"></ul>
+    <br>
+    <a href="index.html">Back to Registration</a>
+
+    <script>
+        window.onload = function () {
+            const displayList = document.getElementById('userDisplay');
+            const users = JSON.parse(localStorage.getItem('userList')) || [];
+
+            if (users.length === 0) {
+                displayList.innerHTML = '<li>No users registered yet.</li>';
+            } else {
+                users.forEach(user => {
+                    const li = document.createElement('li');
+                    li.textContent = `${user.username} (${user.email}) - Registered on: ${user.timestamp}`;
+                    displayList.appendChild(li);
+                });
+            }
+        };
+    </script>
+</body>
+
+</html>
